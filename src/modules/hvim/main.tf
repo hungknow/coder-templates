@@ -15,7 +15,7 @@ variable "agent_id" {
   description = "The ID of a Coder agent."
 }
 
-resource "coder_script" "vault" {
+resource "coder_script" "hvim" {
   agent_id     = var.agent_id
   display_name = "NeoVim by Hungknow"
   icon         = "/icon/git.svg"

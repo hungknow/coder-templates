@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 REPO_URL="https://github.com/hungknow/nvim-config.git"
 CLONE_PATH="~/.config/nvim"
