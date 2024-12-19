@@ -18,12 +18,12 @@ locals {
 }
 
 module "hvim" {
-  source = "git::https://github.com/hungknow/coder-templates.git//src/modules/hvim?ref=hvim"
+  source = "git::https://github.com/hungknow/coder-templates.git//src/modules/hvim?ref=main"
   agent_id = coder_agent.main.id
 }
 
 module "awscli" {
-  source = "git::https://github.com/hungknow/coder-templates.git//src/modules/awscli?ref=hvim"
+  source = "git::https://github.com/hungknow/coder-templates.git//src/modules/awscli?ref=main"
   agent_id = coder_agent.main.id
 }
 
