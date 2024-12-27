@@ -18,12 +18,12 @@ locals {
 }
 
 module "hvim" {
-  source = "git::https://github.com/hungknow/coder-templates.git//src/modules/hvim?ref=main"
+  source = "./src/modules/hvim"
   agent_id = coder_agent.main.id
 }
 
 module "awscli" {
-  source = "git::https://github.com/hungknow/coder-templates.git//src/modules/awscli?ref=main"
+  source = "./src/modules/awscli"
   agent_id = coder_agent.main.id
 }
 
@@ -55,15 +55,31 @@ resource "docker_volume" "home_volume" {
   }
 }
 
-variable container_docker_image {
-  default     = "hungbuiknow/coder-ubuntu-nvm:latest"
-  description = "(Optional) Docker image"
-  type        = string
+# variable container_docker_image {
+#   default     = "hungbuiknow/coder-ubuntu-nvm:latest"
+#   description = "(Optional) Docker image"
+#   type        = string
+# }
+
+resource "docker_image" "main" {
+  name = "coder-${data.coder_workspace.me.id}-image"
+  keep_locally = true
+
+  build {
+    context = join("/", [path.module, "src/dockerfile"])
+    dockerfile = "ubuntu-nvm.Dockerfile"
+    build_args = {
+      USER = local.username
+    }
+  }
+  triggers = {
+    dir_sha1 = sha1(join("", [for f in fileset(path.module, "src/dockerfile/ubuntu-nvm.Dockerfile") : filesha1(f)]))
+  }
 }
 
 resource "docker_container" "workspace" {
   count = data.coder_workspace.me.start_count
-  image = var.container_docker_image
+  image = docker_image.main.name
   # Uses lower() to avoid Docker restriction on container names.
   name = "coder-${data.coder_workspace_owner.me.name}-${lower(data.coder_workspace.me.name)}"
   # Hostname makes the shell more user friendly: coder@my-workspace:~$

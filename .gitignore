@@ -41,3 +41,5 @@ terraform.rc
 .terraform.lock.hcl
 .DS_Store
 
+src/modules/.coder
+src/.coder

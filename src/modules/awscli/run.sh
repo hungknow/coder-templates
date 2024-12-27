@@ -11,6 +11,7 @@ if command -v apt >/dev/null; then
   mkdir -p ~/.local/bin
   ./aws/install --bin-dir ~/.local/bin --install-dir ~/.local/aws-cli 
   rm awscliv2.zip
+  rm -rf ~/aws
 elif command -v apk >/dev/null; then
   apk add --no-cache aws-cli
 else
