@@ -9,11 +9,11 @@ rm nvim-linux64.tar.gz
 # ln -s ~/nvim-linux64/bin/nvim /usr/bin/nvim
 
 mkdir -p "~/.config"
-export PATH="~/nvim-linux64/bin;$PATH"
+export PATH="$PATH:~/nvim-linux64/bin"
 
-if [ -z "$(ls -A "$CLONE_PATH")" ]; then
+if [ -z "$(ls -A $CLONE_PATH)" ]; then
   echo "Cloning $REPO_URL to $CLONE_PATH..."
-  git clone "$REPO_URL" "$CLONE_PATH"
+  git clone "$REPO_URL" $CLONE_PATH
 else
   echo "$CLONE_PATH already exists and isn't empty, skipping clone!"
   exit 0
