@@ -4,12 +4,11 @@ REPO_URL="https://github.com/hungknow/nvim-config.git"
 CLONE_PATH=~/.config/nvim
 
 curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -o nvim-linux64.tar.gz
-tar xzvf nvim-linux64.tar.gz -C ~/
+tar xzvf nvim-linux64.tar.gz -C ~/local
 rm nvim-linux64.tar.gz
 # ln -s ~/nvim-linux64/bin/nvim /usr/bin/nvim
 
 mkdir -p ~/.config
-export PATH="$PATH:~/nvim-linux64/bin"
 
 if [ -z "$(ls -A $CLONE_PATH)" ]; then
   echo "Cloning $REPO_URL to $CLONE_PATH..."
