@@ -18,6 +18,5 @@ else
   exit 127
 fi
 
-export PATH="$PATH:~/local/bin"
 echo "Installed AWS-CLI v2"
 ~/local/bin/aws --version
