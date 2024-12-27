@@ -8,6 +8,7 @@ if command -v apt >/dev/null; then
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   unzip awscliv2.zip
   mkdir -p ~/local/aws-cli
+  mkdir -p ~/local/bin
   ./aws/install --bin-dir ~/local/bin --install-dir ~/local/aws-cli 
   rm awscliv2.zip
 elif command -v apk >/dev/null; then
@@ -19,4 +20,4 @@ fi
 
 export PATH="$PATH:~/local/bin"
 echo "Installed AWS-CLI v2"
-aws --version
+~/local/bin/aws --version
