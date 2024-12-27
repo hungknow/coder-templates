@@ -2,9 +2,9 @@
 
 if command -v apt >/dev/null; then
   export DEBIAN_FRONTEND=noninteractive 
-  apt-get update 
-  apt install -y curl unzip 
-  rm -rf /var/lib/apt/lists/*
+  # apt-get update 
+  # apt install -y curl unzip 
+  # rm -rf /var/lib/apt/lists/*
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   unzip awscliv2.zip
   mkdir -p ~/local/aws-cli
