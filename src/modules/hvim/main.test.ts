@@ -11,7 +11,7 @@ describe("hvim", async () => {
     const output = await executeScriptInContainer(state, "alpine/git");
     expect(output.exitCode).toBe(0);
     expect(output.stdout).toEqual([
-      "Cloning https://github.com/hungknow/nvim-config.git to ~/.config/nvim..."
+      "Cloning https://github.com/hungknow/nvim-config.git to /root/.config/nvim..."
     ]);
   })
 })
