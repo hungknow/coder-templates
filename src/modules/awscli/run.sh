@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 if command -v apt >/dev/null; then
-  export DEBIAN_FRONTEND=noninteractive 
+  # export DEBIAN_FRONTEND=noninteractive 
   # apt-get update 
   # apt install -y curl unzip 
   # rm -rf /var/lib/apt/lists/*
