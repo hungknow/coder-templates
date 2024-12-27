@@ -4,9 +4,8 @@ REPO_URL="https://github.com/hungknow/nvim-config.git"
 CLONE_PATH=~/.config/nvim
 
 curl -L https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -o nvim-linux64.tar.gz
-tar czvf nvim-linux64.tar.gz -C ~/local
+tar xzvf nvim-linux64.tar.gz -C ~/local --strip-components=1
 rm nvim-linux64.tar.gz
-# ln -s ~/nvim-linux64/bin/nvim /usr/bin/nvim
 
 mkdir -p ~/.config
 
