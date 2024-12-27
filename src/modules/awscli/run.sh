@@ -7,7 +7,7 @@ if command -v apt >/dev/null; then
   rm -rf /var/lib/apt/lists/*
   curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
   unzip awscliv2.zip
-  ./aws/install --bin-dir /usr/bin --install-dir /usr/aws-cli
+  ./aws/install --bin-dir /usr/bin
   rm awscliv2.zip
 elif command -v apk >/dev/null; then
   apk add --no-cache aws-cli

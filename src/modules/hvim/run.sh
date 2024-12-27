@@ -8,6 +8,7 @@ tar xzvf nvim-linux64.tar.gz -C ~/
 rm nvim-linux64.tar.gz
 # ln -s ~/nvim-linux64/bin/nvim /usr/bin/nvim
 
+mkdir -p "~/.config"
 export PATH="~/nvim-linux64/bin;$PATH"
 
 if [ -z "$(ls -A "$CLONE_PATH")" ]; then
