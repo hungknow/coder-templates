@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update \
-    && apt-get install -y curl git sudo unzip build-essential \
+    && apt-get install -y curl git sudo unzip build-essential tmux ripgrep \
     && rm -rf /var/lib/apt/lists/*
 
 ARG USER=coder
